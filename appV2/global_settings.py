@@ -727,6 +727,27 @@ class VisualSettings(Data):
         # 展示图表
         st.plotly_chart(fig, use_container_width=True)
 
+    def describe_info(self, text, html):
+        st.markdown(
+            f"""
+            <div style="
+                border: 2px solid white; 
+                padding: 20px; 
+                text-align: center;
+                border-radius: 8px;
+                font-size: 24px; 
+                font-weight: bold; 
+                display: inline-block;
+            ">
+                <a href={html} target="_blank" style="text-decoration: none; color: white;">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/external-link.png" style="vertical-align: middle; width: 0px; height: 20px;"/> {text}
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
 
 
 
