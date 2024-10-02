@@ -5,8 +5,4 @@ primaryColor = "#1f77b4"              # 主色调（可以调整为你喜欢的�
 backgroundColor = "#0e1117"            # 深色背景
 secondaryBackgroundColor = "#262730"   # 辅助背景（深灰色）
 textColor = "#ffffff"                  # 浅色文字，确保在深色背景上清晰可见
-<<<<<<< HEAD
 font = "Microsoft YaHei, Arial, sans-serif"
-=======
-font = "sans serif"
->>>>>>> 82b0b6560784d9da603616e62eb960187d3c79be
