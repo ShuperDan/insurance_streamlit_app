@@ -159,30 +159,55 @@ elif menu_option == '了解更多':
 
     site_dict = {
         '宏利': {
-            'url': 'https://www.manulife.com.hk/zh-hk/individual.html',
+            'company_url': 'https://www.manulife.com.hk/zh-hk/individual.html',
+            'rate_url': 'https://www.manulife.com.hk/zh-hk/individual/products/understanding-your-participating-policy/fulfillment-ratio.html',
+            'history_url': 'https://www.manulife.com.hk/zh-hk/individual/about/our-story/our-business.html',
             'logo': 'https://cdn.worldvectorlogo.com/logos/manulife.svg'
-            # 宏利的 logo 链接
         },
+
         '永明': {
-            'url': 'https://www.sunlife.com.hk/zh-hans/',
+            'company_url': 'https://www.sunlife.com.hk/zh-hans/',
+            'rate_url': 'https://www.sunlife.com.hk/zh-hans/insurance/savings-and-life/fulfillment-ratios-of-respective-products/',
+            'history_url': 'https://www.sunlife.com.hk/zh-hans/insurance/savings-and-life/fulfillment-ratios-of-respective-products/',
             'logo': 'https://www.sunlife.com.hk/content/dam/sunlife/legacy/assets/hk/images/SLF-HK_Blue-on-yellow_1200x1200.png'
-            # 永明的 logo 链接
         }
     }
 
+    visual = VisualSettings()
+    html1 = "https://www.ia.org.hk/sc/participating_policy/index.html"
+
+    st.markdown('<br><br>', unsafe_allow_html=True)
+
+    # 使用 HTML 格式对内容进行美化
     st.markdown(
-        f"""
-        <div style="text-align: center; margin-top: 120px;">
-            <a href="{site_dict[company_name]['url']}" target="_blank" style="text-decoration: none; font-weight: bold;">
-                <img src="{site_dict[company_name]['logo']}" alt="{company_name} logo" style="width: 100px; vertical-align: middle; margin-right: 20px;">
-                <span style="font-size: 30px; color: white;">点击这里跳转到 </span>
-                <span style="font-size: 60px; color: #ff4500;">{company_name}</span>
-                <span style="font-size: 30px; color: white;"> 中文官方网站</span>
-            </a>
+        """
+        <div style="
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            margin: 20px 0;
+        ">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" style="width: 24px; height: 24px; margin-right: 10px;"/>
+            <span style="font-size: 24px; font-weight: bold; font-style: italic;">
+                点击下方内容跳转至相应链接
+            </span>
         </div>
         """,
         unsafe_allow_html=True
     )
+
+    st.markdown('<br><br>', unsafe_allow_html=True)
+
+    col1, col2, col3, col4, col5, col6 = st.columns([0.1, 0.2, 0.2, 0.2, 0.2, 0.05])
+    with col2:
+        visual.describe_info('分红保单的定义', html1)
+    with col3:
+        visual.describe_info(f'{company_name}分红实现率', site_dict[company_name]['rate_url'])
+    with col4:
+        visual.describe_info(f'{company_name}公司介绍', site_dict[company_name]['history_url'])
+    with col5:
+        visual.describe_info(f'{company_name}公司官网', site_dict[company_name]['company_url'])
 
 
 
